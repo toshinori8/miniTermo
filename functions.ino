@@ -31,7 +31,7 @@ void setFan(){
 
 Serial.println("readDHT");
     
-  //  temp = dht.readTemperature();
-   temp=22;
+  temp = dht.readTemperature();
+  // temp=22;
     humi = dht.readHumidity();
     }

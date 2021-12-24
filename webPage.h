@@ -101,7 +101,7 @@ const char webpage[] PROGMEM = R"rawliteral(
             
           
         </div>
-        
+       
         <div class="box">
             <div class="temp__outdoors-col">
                 <small class="temp__heading">Current</small>
@@ -195,8 +195,8 @@ const char webpage[] PROGMEM = R"rawliteral(
             position: relative;
 /*            left: 0%%;*/
 /*            margin-left: -140px;*/
-           border: solid 1px white;
-            
+        
+            box-shadow: none !important;
             
             
           
@@ -546,13 +546,18 @@ const char webpage[] PROGMEM = R"rawliteral(
 
 
     <script type="text/javascript">
-        var startAnim = gsap.to(".ring", {
+        
+
+      
+        
+  var startAnim = gsap.to(".ring", {
   rotation: "+=360", 
   ease: "power1.in", 
     paused: true,
   duration: 3,
     onComplete: function(){
-        
+       
+        startAnim.pause();
     loopAnim.play(0);    
         
     }
@@ -564,13 +569,12 @@ var loopAnim = gsap.to(".ring", {
   
     repeat: -1,
   onComplete: function(){
+      stateAnim="play";
 },
   paused: true
 });
 
 
-var ready = false;
-var endRot = 180;
 
 var stopAnim = gsap.to(".ring", {
   rotation: 180,
@@ -586,13 +590,22 @@ var stopAnim = gsap.to(".ring", {
 
 
 $("#start").on('click',function(){
-    startAnim.play(0);
+    
+    
+    console.log(loopAnim.paused());
+    if(loopAnim.paused() & startAnim.paused()){
+    
+        startAnim.play(0);
+        
+        
+    }
     
 });
 
 $("#stop").on('click',function(){
-    stopAnim.play(0);
- 
+    if(!loopAnim.paused() & startAnim.paused() || !startAnim.paused()){
+        stopAnim.play(0);
+    }
 });
 
         
@@ -615,11 +628,20 @@ $("#stop").on('click',function(){
                        
                       if(datax.fan=="checked"){
                         $(".on-off-toggle__input").prop('checked', true);
-                          startAnim.play(0);
+                          var lAnimPaused = loopAnim.paused();
+    
+                               if(stateAnim=="pause"){
+    
+                                    startAnim.play(0);
+        
+        
+                                }
 
                         }else{
                           $(".on-off-toggle__input").prop('checked', false);
-                            stopAnim.play(0);  
+                            if(stateAnim=="play"){
+                                stopAnim.play(0);
+                            }
                         
                         }
                                          
@@ -905,7 +927,6 @@ $("#stop").on('click',function(){
 </body>
 
 </html>
-
 
 
 
