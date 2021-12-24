@@ -1,2 +1,5 @@
 # miniTermo
- Termostat ESP-01S Relay webpage ajax GSAP 
+ ### Arduino FAN relay on  ESP-01S with webpage, ajax and GSAP animations
+
+
+![](miniTerm.jpg)

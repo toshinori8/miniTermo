@@ -151,7 +151,9 @@ const char webpage[] PROGMEM = R"rawliteral(
             --text: hsl(223, 10%%, 20%%);
             font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
         }
-
+        #start,#stop{
+            display: none;
+        }
         body {
             font-family: OpenSans, sans-serif;
             height: 100vh;
@@ -681,7 +683,7 @@ $("#stop").on('click',function(){
                 this.el = document.querySelector(el);
                 this.temp = 0;
                 this.tempMin = 10;
-                this.tempMax = 30;
+                this.tempMax = 50;
                 this.angleMin = 15;
                 this.angleMax = 345;
 //                this.outside = this.randInt(60, 75);
