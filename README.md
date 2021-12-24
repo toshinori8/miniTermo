@@ -2,4 +2,4 @@
  ### Arduino FAN relay on  ESP-01S with webpage, ajax and GSAP animations
 
 
-![](miniTerm.jpg)
+![](miniTermo.jpg)
