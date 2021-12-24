@@ -591,8 +591,7 @@ var stopAnim = gsap.to(".ring", {
 
 $("#start").on('click',function(){
     
-    
-    console.log(loopAnim.paused());
+
     if(loopAnim.paused() & startAnim.paused()){
     
         startAnim.play(0);
@@ -630,16 +629,16 @@ $("#stop").on('click',function(){
                         $(".on-off-toggle__input").prop('checked', true);
                           var lAnimPaused = loopAnim.paused();
     
-                               if(stateAnim=="pause"){
+                                if(loopAnim.paused() & startAnim.paused()){
     
-                                    startAnim.play(0);
+                                        startAnim.play(0);
         
         
                                 }
 
                         }else{
                           $(".on-off-toggle__input").prop('checked', false);
-                            if(stateAnim=="play"){
+                           if(!loopAnim.paused() & startAnim.paused() || !startAnim.paused()){
                                 stopAnim.play(0);
                             }
                         
