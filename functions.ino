@@ -3,12 +3,13 @@ void termostatRules(){
         if(setTemp<temp){
 
         Serial.println("termostatRules FAN ON");
-          digitalWrite(FANPIN, HIGH);
+         
+          digitalWrite(FANPIN,LOW);
           fan="checked";
           }else{
 
                     Serial.println("termostatRules FAN OFF");
-                      digitalWrite(FANPIN, LOW);
+                      digitalWrite(FANPIN, HIGH);
             fan="unchecked";
             }
         

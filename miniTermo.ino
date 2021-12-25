@@ -1,9 +1,10 @@
 #include <DHT.h>
 #include <DHT_U.h>
 #define DHTPIN 2
-#define FANPIN 3 
+#define FANPIN 0 
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
+#include <EEPROM.h>
 
 #include <ESP8266WiFi.h>
 //#include <WiFiClient.h>
@@ -51,7 +52,9 @@ const char* password = "pmgana921";
 
 const char* PARAM_INPUT_1 = "setTemp";
 const char* PARAM_INPUT_2 = "fanControll";
-int setTemp; 
+int setTemp;
+int tempMin= 10;
+int tempMax= 50; 
 String fanControll;
 
 
@@ -59,9 +62,15 @@ String fanControll;
 #include "webPage.h"
 String processor(const String& var)
 {
-  if(var == "MAC_ADDR")
-   return var;
-   //return "dad";
+  if(var == "_setTemp_")
+   return String(setTemp);
+
+  if(var == "_tempMin_")
+   return String(tempMin);
+  
+  if(var == "_tempMax_")
+   return String(tempMax);
+     
 }
 
 
@@ -84,9 +93,17 @@ void notFound(AsyncWebServerRequest *request) {
 void setup(void){
  // Wire.begin(D5, D6);
 
+
+  pinMode(FANPIN,OUTPUT);
+  digitalWrite(FANPIN, HIGH);
+ 
+
+
+
+  
   dht.begin();
-
-
+  pinMode(0, OUTPUT); digitalWrite(0, HIGH);
+  
   timers.attach(0,3000,termostatRules); 
   timers.attach(2,4332,readDHT);
     /////////////////////////////////////     OLED DISOPLAY 
@@ -111,6 +128,13 @@ void setup(void){
   delay(100);
   
   Serial.begin(115200);
+
+    EEPROM.begin(512);
+
+  setTemp=EEPROM.read(0);
+
+
+  
   WiFi.begin(ssid, password);
 
 
@@ -120,6 +144,9 @@ void setup(void){
     delay(200);
     Serial.print(".");
   }
+  Serial.println("eeprom data:");
+Serial.print(setTemp);
+  
   Serial.println("");
   Serial.print("Connected to ");
   Serial.println(ssid);
@@ -146,7 +173,10 @@ void setup(void){
         }
     Serial.println(PARAM_INPUT_1);
     Serial.println(setTemp);
+    EEPROM.write(0, setTemp);   // To store in 0th Location
+    EEPROM.commit();
 
+   
   
     request->send_P(200, "text/html", "setTempOK");
   });
@@ -174,6 +204,7 @@ void setup(void){
       json += "\"temp\":\""+String(temp)+"\"";
       json += ",\"humi\":\""+String(humi)+"\"";
       json += ",\"fan\":\""+fan+"\"";
+      json += ",\"setTemp\":\""+String(setTemp)+"\"";
 //      json += ",\"secure\":"+String(WiFi.encryptionType(i));
       json += "}";    
    

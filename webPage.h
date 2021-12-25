@@ -16,98 +16,89 @@ const char webpage[] PROGMEM = R"rawliteral(
 </head>
 
 <body class="">
-
-
-
-
-
-
-<div id="stop" class=" bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700"
-     >Stop</div>
-<div id="start" class="  bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
-     >Start</div>
-    
-    
-    
+    <div id="stop" class=" bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700">Stop</div>
+    <div id="start" class="  bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2">Start</div>
     <div class="temp">
-        
-        
-        
-        
+
+
+
+
         <div class="temp__dial">
-               
-           
+
+
             <div class="temp__drag"></div>
-        
-             
-                    
+
+
+
 
             <div class="temp__dial-shades">
-                 
-                
-                
+
+
+
                 <div class="temp__shade-cold"></div>
                 <div class="temp__shade-hot"></div>
-                 
-                
-              
-                
+
+
+
+
             </div>
             <div class="temp__dial-core">
-            
-            
-            
+
+
+
             </div>
             <div class="ring">
-            
-           
 
-            
-<!--            <img src="svg.svg"/>-->
-                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="280.5px"
-   height="280.5px" viewBox="0 0 280.5 280.5" style="overflow:visible;enable-background:new 0 0 280.5 280.5;"
-   xml:space="preserve">
-<style type="text/css">
-  .st0{fill:#222;
-    opacity: 0.1}
-</style>
-<defs>
-</defs>
-<rect x="4.2" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 157.3841 123.0695)" class="st0" width="25.9" height="34.3"/>
-<rect x="250.3" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 403.5232 -123.0695)" class="st0" width="25.9" height="34.3"/>
-<rect x="127.3" y="246.1" class="st0" width="25.9" height="34.3"/>
-<rect x="127.3" y="0" class="st0" width="25.9" height="34.3"/>
-<rect x="40.2" y="210.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 176.2731 28.9394)" class="st0" width="25.9" height="34.3"/>
-<rect x="214.3" y="36" transform="matrix(0.7071 0.7071 -0.7071 0.7071 104.1806 -145.1071)" class="st0" width="25.9" height="34.3"/>
-<rect x="214.3" y="210.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -94.1301 227.25)" class="st0" width="25.9" height="34.3"/>
-<rect x="40.2" y="36" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -22.0376 53.2035)" class="st0" width="25.9" height="34.3"/>
-<rect x="80.4" y="236.9" transform="matrix(0.9246 0.381 -0.381 0.9246 103.8178 -16.4028)" class="st0" width="25.9" height="34.3"/>
-<rect x="174.1" y="9.3" transform="matrix(0.9246 0.381 -0.381 0.9246 24.1861 -69.2959)" class="st0" width="25.9" height="34.3"/>
-<rect x="241" y="170" transform="matrix(0.381 -0.9246 0.9246 0.381 -15.7669 350.6812)" class="st0" width="25.9" height="34.3"/>
-<rect x="13.5" y="76.2" transform="matrix(0.381 -0.9246 0.9246 0.381 -69.9319 82.2221)" class="st0" width="25.9" height="34.3"/>
-<rect x="174.6" y="236.7" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -83.1631 91.582)" class="st0" width="25.9" height="34.3"/>
-<rect x="80" y="9.5" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -3.0903 37.761)" class="st0" width="25.9" height="34.3"/>
-<rect x="240.9" y="75.8" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 265.6273 362.9808)" class="st0" width="25.9" height="34.3"/>
-<rect x="13.6" y="170.4" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 -136.2844 284.1799)" class="st0" width="25.9" height="34.3"/>
-</svg>
-                  
-            
-  
+
+
+
+                <!--            <img src="svg.svg"/>-->
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="280.5px" height="280.5px" viewBox="0 0 280.5 280.5" style="overflow:visible;enable-background:new 0 0 280.5 280.5;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0 {
+                            fill: #222;
+                            opacity: 0.1
+                        }
+
+                    </style>
+                    <defs>
+                    </defs>
+                    <rect x="4.2" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 157.3841 123.0695)" class="st0" width="25.9" height="34.3" />
+                    <rect x="250.3" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 403.5232 -123.0695)" class="st0" width="25.9" height="34.3" />
+                    <rect x="127.3" y="246.1" class="st0" width="25.9" height="34.3" />
+                    <rect x="127.3" y="0" class="st0" width="25.9" height="34.3" />
+                    <rect x="40.2" y="210.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 176.2731 28.9394)" class="st0" width="25.9" height="34.3" />
+                    <rect x="214.3" y="36" transform="matrix(0.7071 0.7071 -0.7071 0.7071 104.1806 -145.1071)" class="st0" width="25.9" height="34.3" />
+                    <rect x="214.3" y="210.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -94.1301 227.25)" class="st0" width="25.9" height="34.3" />
+                    <rect x="40.2" y="36" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -22.0376 53.2035)" class="st0" width="25.9" height="34.3" />
+                    <rect x="80.4" y="236.9" transform="matrix(0.9246 0.381 -0.381 0.9246 103.8178 -16.4028)" class="st0" width="25.9" height="34.3" />
+                    <rect x="174.1" y="9.3" transform="matrix(0.9246 0.381 -0.381 0.9246 24.1861 -69.2959)" class="st0" width="25.9" height="34.3" />
+                    <rect x="241" y="170" transform="matrix(0.381 -0.9246 0.9246 0.381 -15.7669 350.6812)" class="st0" width="25.9" height="34.3" />
+                    <rect x="13.5" y="76.2" transform="matrix(0.381 -0.9246 0.9246 0.381 -69.9319 82.2221)" class="st0" width="25.9" height="34.3" />
+                    <rect x="174.6" y="236.7" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -83.1631 91.582)" class="st0" width="25.9" height="34.3" />
+                    <rect x="80" y="9.5" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -3.0903 37.761)" class="st0" width="25.9" height="34.3" />
+                    <rect x="240.9" y="75.8" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 265.6273 362.9808)" class="st0" width="25.9" height="34.3" />
+                    <rect x="13.6" y="170.4" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 -136.2844 284.1799)" class="st0" width="25.9" height="34.3" />
+                </svg>
+
+
+
             </div>
-            
+
             <div class="temp__value">
                 <span class="temp__digit"></span><span class="temp__digit"></span>°
             </div>
-            
-          
+
+
         </div>
-       
+
         <div class="box">
             <div class="temp__outdoors-col">
                 <small class="temp__heading">Current</small>
                 <br>
                 <span class="temp__c-value">0°</span>
-            </div> <div class="temp__outdoors-col">
+            </div>
+            <div class="temp__outdoors-col">
                 <small class="temp__heading">Outside</small>
                 <br>
                 <span class="temp__o-value">0°</span>
@@ -151,9 +142,12 @@ const char webpage[] PROGMEM = R"rawliteral(
             --text: hsl(223, 10%%, 20%%);
             font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
         }
-        #start,#stop{
+
+        #start,
+        #stop {
             display: none;
         }
+
         body {
             font-family: OpenSans, sans-serif;
             height: 100vh;
@@ -169,7 +163,6 @@ const char webpage[] PROGMEM = R"rawliteral(
         }
 
         .temp {
-
             --angle: 0deg;
             background-color: transparent;
             border-radius: 0em;
@@ -181,42 +174,23 @@ const char webpage[] PROGMEM = R"rawliteral(
             width: 16em;
             height: 28.4em;
         }
-        .temp .ring svg{
-            
+
+        .temp .ring svg {
+
             width: 100%%;
             height: 100%%;
         }
-        .temp .ring{
-            
-/*            transform: scale(0.1);*/
+
+        .temp .ring {
             overflow: hidden;
             margin: 0;
             width: 100%%;
             height: 100%%;
             opacity: 1.04;
             position: relative;
-/*            left: 0%%;*/
-/*            margin-left: -140px;*/
-        
             box-shadow: none !important;
-            
-            
-          
-/*    animation:spin 0.2s ease-in infinite;*/
-               
-            
         }
-        
-/*
-        @-moz-keyframes spin { 100%% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100%% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100%% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-        .rStop {
-  animation-play-state: paused; 
-}
-*/
-        
         .temp__dial,
         .temp__dial-core,
         .temp__dial-shades,
@@ -323,14 +297,10 @@ const char webpage[] PROGMEM = R"rawliteral(
         .temp__drag:active~.temp__dial-core,
         .temp__drag--active~.temp__dial-core {
             color: hsla(0, 0%%, 0%%, 0.3);
-
         }
 
         .temp__drag:before {
-            /*       border:solid 30px white;*/
-            /*  background: linear-gradient(145deg,var(--l5),var(--l1));*/
             background: var(--l5);
-
             content: "";
             display: block;
             top: 50%%;
@@ -431,7 +401,6 @@ const char webpage[] PROGMEM = R"rawliteral(
             background-color: var(--l3);
             border: 1px solid var(--l6);
             padding: 10px;
-
         }
 
         /** CSS INPUT SWITCH **/
@@ -503,19 +472,7 @@ const char webpage[] PROGMEM = R"rawliteral(
             font-size: 0.7em;
             opacity: 0.8;
             margin-right: 20px;
-            /*    margin: 0px;*/
-            /*    font-family: OpenSans, sans-serif;*/
-
-            /*    margin: 2px;*/
-            /*    align-items: center;*/
-            /*    justify-content: center;*/
-            /*  background: var(--l3);*/
             color: var(--text);
-            /*  display: grid;*/
-            /*  place-items: center;*/
-
-
-
         }
 
         /*** END CSS NEEDED FOR SWITCH **/
@@ -545,120 +502,70 @@ const char webpage[] PROGMEM = R"rawliteral(
         }
 
     </style>
-
-
     <script type="text/javascript">
-        
+        var startAnim = gsap.to(".ring", {
+            rotation: "+=360",
+            ease: "power1.in",
+            paused: true,
+            duration: 3,
+            onComplete: function() {
 
-      
-        
-  var startAnim = gsap.to(".ring", {
-  rotation: "+=360", 
-  ease: "power1.in", 
-    paused: true,
-  duration: 3,
-    onComplete: function(){
-       
-        startAnim.pause();
-    loopAnim.play(0);    
-        
-    }
-});
+                startAnim.pause();
+                loopAnim.play(0);
 
-var loopAnim = gsap.to(".ring", {
-  rotation: "+=360", 
-  ease: "none", 
-  
-    repeat: -1,
-  onComplete: function(){
-      stateAnim="play";
-},
-  paused: true
-});
+            }
+        });
+
+        var loopAnim = gsap.to(".ring", {
+            rotation: "+=360",
+            ease: "none",
+
+            repeat: -1,
+            onComplete: function() {
+                stateAnim = "play";
+            },
+            paused: true
+        });
 
 
 
-var stopAnim = gsap.to(".ring", {
-  rotation: 180,
-  duration: 0.6,
-  paused: true,
-    onComplete: function(){
-        
-        loopAnim.pause();
-        startAnim.pause();
-        
-    }
-});
+        var stopAnim = gsap.to(".ring", {
+            rotation: 180,
+            duration: 0.6,
+            paused: true,
+            onComplete: function() {
+
+                loopAnim.pause();
+                startAnim.pause();
+
+            }
+        });
 
 
-$("#start").on('click',function(){
-    
-
-    if(loopAnim.paused() & startAnim.paused()){
-    
-        startAnim.play(0);
-        
-        
-    }
-    
-});
-
-$("#stop").on('click',function(){
-    if(!loopAnim.paused() & startAnim.paused() || !startAnim.paused()){
-        stopAnim.play(0);
-    }
-});
-
-        
-         let actualTemp=0;
+        $("#start").on('click', function() {
 
 
-       setInterval(getdata, 800);
+            if (loopAnim.paused() & startAnim.paused()) {
 
-        
-        function getdata(){
-          
-            $.ajax({
-                   type: "GET",
-                   url: "/params",
-                   dataType: "json",
-                   success: function (datax) { 
-                      console.log(datax); 
-                     
-                     $(".temp__c-value").html(datax.temp+"°") 
-                       
-                      if(datax.fan=="checked"){
-                        $(".on-off-toggle__input").prop('checked', true);
-                          var lAnimPaused = loopAnim.paused();
-    
-                                if(loopAnim.paused() & startAnim.paused()){
-    
-                                        startAnim.play(0);
-        
-        
-                                }
+                startAnim.play(0);
 
-                        }else{
-                          $(".on-off-toggle__input").prop('checked', false);
-                           if(!loopAnim.paused() & startAnim.paused() || !startAnim.paused()){
-                                stopAnim.play(0);
-                            }
-                        
-                        }
-                                         
-                   }
-                   
-            });
 
-        };
-          
-        
-        
-        
-        
-     
-        
-        
+            }
+
+        });
+
+        $("#stop").on('click', function() {
+            if (!loopAnim.paused() & startAnim.paused() || !startAnim.paused()) {
+                stopAnim.play(0);
+            }
+        });
+
+
+
+
+
+
+
         document.addEventListener("DOMContentLoaded", function() {
 
 
@@ -670,29 +577,67 @@ $("#stop").on('click',function(){
                 dataType: "json",
                 success: function(json) {
                     thermostat.outdoorsAdjust(json.main.temp, json.main.humidity);
+                   
                 }
             });
+
+             function fetchAjax() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/params",
+                        dataType: "json",
+                        success: function(datax) {
+                            console.log(datax);
+                            thermostat.tempAdjust(datax.setTemp);
+                            $(".temp__c-value").html(datax.temp + "°")
+
+                            if (datax.fan == "checked") {
+                                $(".on-off-toggle__input").prop('checked', true);
+                                var lAnimPaused = loopAnim.paused();
+
+                                if (loopAnim.paused() & startAnim.paused()) {
+
+                                    startAnim.play(0);
+
+
+                                }
+
+                            } else {
+                                $(".on-off-toggle__input").prop('checked', false);
+                                if (!loopAnim.paused() & startAnim.paused() || !startAnim.paused()) {
+                                    stopAnim.play(0);
+                                }
+
+                            }
+
+                        }
+
+                    });
+
+                };
+
+                    setInterval(fetchAjax, 1200);
 
 
 
         });
 
         class NeuThermostat {
-
+            
             constructor(el) {
+                
                 this.el = document.querySelector(el);
-                this.temp = 0;
-                this.tempMin = 10;
-                this.tempMax = 50;
+                this.temp = %_setTemp_%;
+                this.tempMin = %_tempMin_%;
+                this.tempMax = %_tempMax_%;
                 this.angleMin = 15;
                 this.angleMax = 345;
-//                this.outside = this.randInt(60, 75);
-//                this.humidity = this.randInt(70, 90);
-                this.outside=0;
-                this.humidity=0;
-                
+                this.outside = 0;
+                this.humidity = 0;
+
                 this.init();
             }
+            
             init() {
                 window.addEventListener("keydown", this.kbdEvent.bind(this));
                 window.addEventListener("keyup", this.activeState.bind(this));
@@ -713,7 +658,7 @@ $("#stop").on('click',function(){
                 // init values
                 this.tempAdjust(this.temp);
                 this.outdoorsAdjust(this.outside, this.humidity);
-
+                    this.getData();
                 // init GreenSock Draggable
                 Draggable.create(".temp__drag", {
                     type: "rotation",
@@ -722,17 +667,19 @@ $("#stop").on('click',function(){
                         maxRotation: this.angleMax
                     },
                     onDrag: () => {
-                        
+
                         $(".ring").fadeOut("slow");
                         this.tempAdjust("drag");
-                        
+
                     },
                     onDragEnd: function() {
                         // send value to arduino
-                      $(".ring").fadeIn("slow");
-                        
-                                 $.ajax({"url": "/setTemp?setTemp="+actualTemp.toFixed(0)});
-                        
+                        $(".ring").fadeIn("slow");
+
+                        $.ajax({
+                            "url": "/setTemp?setTemp=" + actualTemp.toFixed(0)
+                        });
+
                     }
                 });
             }
@@ -768,7 +715,7 @@ $("#stop").on('click',function(){
             }
             activeState(shouldAdd = false) {
 
-                
+
                 if (this.el) {
                     let dragClass = "temp__drag",
                         activeState = dragClass + "--active",
@@ -832,9 +779,9 @@ $("#stop").on('click',function(){
                                 angleFrac = relAngle / angleRange;
 
                             this.temp = angleFrac * tempRange + this.tempMin;
-                            actualTemp=this.temp;
-                            
-                           
+                            actualTemp = this.temp;
+
+
                         }
                     }
 
@@ -920,15 +867,22 @@ $("#stop").on('click',function(){
                     outdoorVals[1].textContent = this.humidity + "%%";
                 }
             }
+            getData() {
 
-        }
+                
+
+               
+
+
+            }
+           
+        }let actualTemp = 0;
 
     </script>
 
 </body>
 
 </html>
-
 
 
 )rawliteral";
