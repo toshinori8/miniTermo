@@ -9,6 +9,6 @@ Smart thermostat controller made for controlling fan ower wifi.
 > **Update values on all devices in realtime** 
 > **DHT11**  used spare part - nead to replace.   
 
-![](miniThermo.jpg)
-![](miniThermo1.jpg)
-![](miniThermo2.jpg)
+![](img/miniThermo.jpg)
+![](img/miniThermo1.jpg)
+![](img/miniThermo2.jpg)
