@@ -1,7 +1,7 @@
 
 
 
-void otaStart(){
+void otaStart() {
 
   ArduinoOTA.setHostname("miniTermo");
   ArduinoOTA.onStart([]() {
@@ -14,7 +14,7 @@ void otaStart(){
 
     // NOTE: if updating FS this would be the place to unmount FS using FS.end()
     Serial.println("Start updating " + type);
-  
+
   });
   ArduinoOTA.onEnd([]() {
     Serial.println("\nEnd");
@@ -22,8 +22,8 @@ void otaStart(){
   ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
     Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
 
-    String textt= "Progress: %u%%\r"+ String((progress / (total / 100)));
-    
+    String textt = "Progress: %u%%\r" + String((progress / (total / 100)));
+
   });
   ArduinoOTA.onError([](ota_error_t error) {
     Serial.printf("Error[%u]: ", error);
@@ -43,8 +43,8 @@ void otaStart(){
   Serial.println("Ready");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-  
-  
-  
-  
-  }
+
+
+
+
+}

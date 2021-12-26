@@ -21,38 +21,17 @@ const char webpage[] PROGMEM = R"rawliteral(
     <div class="temp">
 
 
-
-
         <div class="temp__dial">
 
-
             <div class="temp__drag"></div>
-
-
-
-
             <div class="temp__dial-shades">
-
-
-
                 <div class="temp__shade-cold"></div>
                 <div class="temp__shade-hot"></div>
-
-
-
-
             </div>
             <div class="temp__dial-core">
-
-
-
             </div>
             <div class="ring">
 
-
-
-
-                <!--            <img src="svg.svg"/>-->
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="280.5px" height="280.5px" viewBox="0 0 280.5 280.5" style="overflow:visible;enable-background:new 0 0 280.5 280.5;" xml:space="preserve">
                     <style type="text/css">
                         .st0 {
@@ -80,7 +59,6 @@ const char webpage[] PROGMEM = R"rawliteral(
                     <rect x="240.9" y="75.8" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 265.6273 362.9808)" class="st0" width="25.9" height="34.3" />
                     <rect x="13.6" y="170.4" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 -136.2844 284.1799)" class="st0" width="25.9" height="34.3" />
                 </svg>
-
 
 
             </div>
@@ -268,11 +246,31 @@ const char webpage[] PROGMEM = R"rawliteral(
         }
 
         .temp__shade-cold {
-            background-image: radial-gradient(100%% 100%% at 50%% 100%%, hsl(193, 90%%, 55%%), hsl(268, 90%%, 55%%));
+          
+          background-image: radial-gradient(100%% 100%% at 50%% 100%%, hsl(193, 90%%, 55%%), hsl(268, 90%%, 55%%)); 
+          
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          background-attachment: scroll, scroll, scroll, fixed;
+
+            /*  background: rgb(112,47,189);
+                background: -moz-radial-gradient(circle, rgba(112,47,189,1) 0%%, rgba(38,199,244,1) 100%%);
+                background: -webkit-radial-gradient(circle, rgba(112,47,189,1) 0%%, rgba(38,199,244,1) 100%%);
+                background: radial-gradient(circle, rgba(112,47,189,1) 0%%, rgba(38,199,244,1) 100%%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#702fbd",endColorstr="#26c7f4",GradientType=1);*/
         }
 
         .temp__shade-hot {
             background-image: radial-gradient(100%% 100%% at 50%% 100%%, hsl(63, 90%%, 55%%), hsl(13, 90%%, 45%%));
+
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          background-attachment: scroll, scroll, scroll, fixed;
+            
         }
 
         .temp__drag {
