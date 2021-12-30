@@ -1,38 +1,38 @@
-void termostatRules(){
-  
-        if(setTemp<temp){
+void termostatRules() {
 
-        Serial.println("termostatRules FAN ON");
-         
-          digitalWrite(FANPIN,LOW);
-          fan="checked";
-          }else{
+  if (setTemp <= temp) {
 
-                    Serial.println("termostatRules FAN OFF");
-                      digitalWrite(FANPIN, HIGH);
-            fan="unchecked";
-            }
-        
-  
-  
-  }; 
+    Serial.println("termostatRules FAN ON");
+
+    digitalWrite(FANPIN, LOW);
+    fan = "checked";
+  } else {
+
+    Serial.println("termostatRules FAN OFF");
+    digitalWrite(FANPIN, HIGH);
+    fan = "unchecked";
+  }
 
 
 
-void setFan(){
+};
 
 
-   
-  
-  
-  
-  }; 
 
-  void readDHT(){
+void setFan() {
 
-Serial.println("readDHT");
-    
+
+
+
+
+
+};
+
+void readDHT() {
+
+  Serial.println("readDHT");
+
   temp = dht.readTemperature();
   // temp=22;
-    humi = dht.readHumidity();
-    }
+  humi = dht.readHumidity();
+}
