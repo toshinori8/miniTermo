@@ -13,6 +13,8 @@ const char webpage[] PROGMEM = R"rawliteral(
     <script type="text/javascript" src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <link src="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" src_type="url" rel="stylesheet" type="text/css"/>
 </head>
 
 <body class="">
@@ -70,6 +72,8 @@ const char webpage[] PROGMEM = R"rawliteral(
 
         </div>
 
+
+
         <div class="box">
             <div class="temp__outdoors-col">
                 <small class="temp__heading">Current</small>
@@ -97,6 +101,22 @@ const char webpage[] PROGMEM = R"rawliteral(
             <p class="labell">wiatrak</p>
 
 
+        </div>
+        <div class="box">
+
+          
+          <button class="button button-icon button-clear md-settings">Ustawienia</button>
+
+          
+          <ion-icon name="md-settings"  class="settings" ios="ios-settings" md="md-settings"></ion-icon>
+
+
+          <script type="javascript">
+          
+          
+          </script>
+
+        
         </div>
 
     </div>
@@ -222,8 +242,8 @@ const char webpage[] PROGMEM = R"rawliteral(
         .temp__dial-core,
         .temp__dial-shades {
             transition-delay: 0.1s;
-            width: 8.5rem;
-            height: 8.5rem;
+            width: 12.4rem;
+            height: 12.4rem;
         }
 
         .temp__dial-core {
@@ -234,7 +254,7 @@ const char webpage[] PROGMEM = R"rawliteral(
 
         .temp__dial-shades,
         .temp__drag:before {
-            opacity: 0;
+            opacity: .3;
         }
 
         .temp__shade-cold,
