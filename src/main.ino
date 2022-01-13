@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <DHT.h>
 #include <DHT_U.h>
 #define DHTPIN 2
@@ -149,7 +150,7 @@ void setup(void) {
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-  if (MDNS.begin("Rancho")) {
+  if (MDNS.begin("miniTermo")) {
 
     Serial.println("MDNS Responder Started");
     server.begin();

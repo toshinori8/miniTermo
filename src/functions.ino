@@ -1,3 +1,9 @@
+
+#include <functions.h"
+
+
+
+
 void termostatRules() {
 
   if (setTemp <= temp) {

@@ -1,3 +1,6 @@
+#include <Arduino.h>
+
+
 const char webpage[] PROGMEM = R"rawliteral(
 <html lang="en">
 
