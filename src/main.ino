@@ -1,26 +1,28 @@
 #include <Arduino.h>
 #include <DHT.h>
 #include <DHT_U.h>
-#define DHTPIN 2
-#define FANPIN 0
-#define DHTTYPE DHT11
-DHT dht(DHTPIN, DHTTYPE);
+#include <Timers.h>
+
 #include <EEPROM.h>
-
 #include <ESP8266WiFi.h>
-
-
-
-
-
 #include <ESPAsyncWebServer.h>
+#define TEMPLATE_PLACEHOLDER '^'
 #include <ESP8266mDNS.h>
 #include <ESPAsyncTCP.h>
-
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
-//#include <espnow.h>
-#define TEMPLATE_PLACEHOLDER '^'
+#include <espnow.h>
+
+#include "main.h"
+#include "functions.h"
+
+int setTemp=1;
+
+
+
+
+DHT dht(DHTPIN, DHTTYPE);
+Timers <4> timer;
 
 
 
@@ -37,12 +39,12 @@ DHT dht(DHTPIN, DHTTYPE);
 
 
 
-#include <Timers.h>
-Timers <4> timers;
+
+
 
 int temp, humi;
 String fan = "checked";
-
+String fanControll;
 void otaStart();
 
 void termostatRules();
@@ -60,10 +62,10 @@ const char* password = "pmgana921";
 
 const char* PARAM_INPUT_1 = "setTemp";
 const char* PARAM_INPUT_2 = "fanControll";
-int setTemp;
+
 int tempMin = 10;
 int tempMax = 50;
-String fanControll;
+
 
 
 
@@ -88,7 +90,21 @@ return String();
 
 
 
+int fanDelayI=0;
 
+void setDelay(){
+  timer.updateInterval(3,45000);// 0,75 minute
+};
+
+
+void fanDelay(){
+
+
+fanDelayI=1;
+
+
+
+};
 
 void notFound(AsyncWebServerRequest *request) {
   request->send(404, "text/plain", "Not found");
@@ -114,8 +130,12 @@ void setup(void) {
   dht.begin();
   pinMode(0, OUTPUT); digitalWrite(0, HIGH);
 
-  timers.attach(0, 3000, termostatRules);
-  timers.attach(2, 4332, readDHT);
+
+
+  timer.attach(0, 3000, termostatRules);
+  timer.attach(2, 4332, readDHT); 
+  timer.attach(3, 0, fanDelay); // function to avoid bouncing of termostat 
+
   /////////////////////////////////////     OLED DISOPLAY
 
 
@@ -136,6 +156,7 @@ void setup(void) {
   Serial.begin(115200);
   EEPROM.begin(512);
   setTemp = EEPROM.read(0);
+
 
 
   WiFi.begin(ssid, password);
@@ -189,8 +210,8 @@ void setup(void) {
       fanControll = request->getParam(PARAM_INPUT_2)->value();
 
     }
-    Serial.println(PARAM_INPUT_2);
-    Serial.println(fanControll);
+    //Serial.println(PARAM_INPUT_2);
+    //Serial.println(fanControll);
 
 
     request->send_P(200, "text/html", "fanControllOK");
@@ -236,6 +257,6 @@ void loop(void) {
 
 
 
-  timers.process();
+  timer.process();
   ArduinoOTA.handle();
 }
