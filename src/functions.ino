@@ -1,6 +1,8 @@
 
-#include <functions.h"
+#include <DHT.h>
+#include <DHT_U.h>
 
+#include "functions.h"
 
 
 
