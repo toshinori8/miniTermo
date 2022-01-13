@@ -9,6 +9,9 @@ DHT dht(DHTPIN, DHTTYPE);
 #include <ESP8266WiFi.h>
 
 
+
+
+
 #include <ESPAsyncWebServer.h>
 #include <ESP8266mDNS.h>
 #include <ESPAsyncTCP.h>
@@ -86,6 +89,16 @@ void notFound(AsyncWebServerRequest *request) {
 }
 
 void setup(void) {
+
+
+//********** CHANGE PIN FUNCTION  TO GPIO **********
+//GPIO 1 (TX) swap the pin to a GPIO.
+//pinMode(1, FUNCTION_3); 
+//GPIO 3 (RX) swap the pin to a GPIO.
+//pinMode(3, FUNCTION_3); 
+//**************************************************
+
+  
   // Wire.begin(D5, D6);
 
   pinMode(FANPIN, OUTPUT);
