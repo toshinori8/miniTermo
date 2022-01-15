@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <DHT.h>
 #include <DHT_U.h>
-#include <Timers.h>
+#include <Timers.h>   
 
 #include <EEPROM.h>
 #include <ESP8266WiFi.h>
@@ -15,10 +15,17 @@
 
 #include "main.h"
 #include "functions.h"
-
+#include "esp_now.h"
 int setTemp=1;
 
 
+  class fan {
+    
+    int delay = 2000;
+    int state = LOW;
+    long duration;
+    unsigned long millisMarker;
+  };
 
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -90,21 +97,8 @@ return String();
 
 
 
-int fanDelayI=0;
-
-void setDelay(){
-  timer.updateInterval(3,45000);// 0,75 minute
-};
 
 
-void fanDelay(){
-
-
-fanDelayI=1;
-
-
-
-};
 
 void notFound(AsyncWebServerRequest *request) {
   request->send(404, "text/plain", "Not found");
@@ -134,7 +128,7 @@ void setup(void) {
 
   timer.attach(0, 3000, termostatRules);
   timer.attach(2, 4332, readDHT); 
-  timer.attach(3, 0, fanDelay); // function to avoid bouncing of termostat 
+  timer.attach(3, 8000, updateESP); // 
 
   /////////////////////////////////////     OLED DISOPLAY
 
@@ -146,6 +140,8 @@ void setup(void) {
   //
   //
   //  displayData();
+
+
   /////////////////////////////////////     OLED DISOPLAY
 
 
@@ -161,8 +157,6 @@ void setup(void) {
 
   WiFi.begin(ssid, password);
 
-
-
   // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(200);
@@ -170,14 +164,12 @@ void setup(void) {
   }
   Serial.println("eeprom data:");
   Serial.print(setTemp);
-
   Serial.println("");
   Serial.print("Connected to ");
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
   if (MDNS.begin("miniTermo")) {
-
     Serial.println("MDNS Responder Started");
     server.begin();
     //u8g2.begin();
@@ -200,8 +192,6 @@ void setup(void) {
     EEPROM.write(0, setTemp);   // To store in 0th Location
     EEPROM.commit();
 
-
-
     request->send_P(200, "text/html", "setTempOK");
   });
 
@@ -213,17 +203,12 @@ void setup(void) {
     //Serial.println(PARAM_INPUT_2);
     //Serial.println(fanControll);
 
-
     request->send_P(200, "text/html", "fanControllOK");
   });
 
 
-
-
-
   server.on("/params", HTTP_GET, [](AsyncWebServerRequest * request) {
     String json = "";
-
     json += "{";
     json += "\"temp\":\"" + String(temp) + "\"";
     json += ",\"humi\":\"" + String(humi) + "\"";
@@ -231,7 +216,6 @@ void setup(void) {
     json += ",\"setTemp\":\"" + String(setTemp) + "\"";
     //      json += ",\"secure\":"+String(WiFi.encryptionType(i));
     json += "}";
-
     json += "";
     request->send(200, "application/json", json);
     json = String();
@@ -244,19 +228,12 @@ void setup(void) {
   //    request->send_P(200, "text/html", "right");
   //  });
   //
-
   server.onNotFound(notFound);
-
-
   Serial.println("HTTP Server Started");
 }
 
 
-
 void loop(void) {
-
-
-
   timer.process();
   ArduinoOTA.handle();
 }

@@ -16,6 +16,4 @@ extern int setTemp;
 extern int tempMin;
 extern int tempMax;
 
-void fanDelay();
-void setDelay();
-extern int fanDelayI; 
+
