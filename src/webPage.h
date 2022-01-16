@@ -17,114 +17,9 @@ const char webpage[] PROGMEM = R"rawliteral(
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <link src="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" src_type="url" rel="stylesheet" type="text/css"/>
-</head>
-
-<body class="">
-    <div id="stop" class=" bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700">Stop</div>
-    <div id="start" class="  bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2">Start</div>
-    <div class="temp">
 
 
-        <div class="temp__dial">
-
-            <div class="temp__drag"></div>
-            <div class="temp__dial-shades">
-                <div class="temp__shade-cold"></div>
-                <div class="temp__shade-hot"></div>
-            </div>
-            <div class="temp__dial-core">
-            </div>
-            <div class="ring">
-
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="280.5px" height="280.5px" viewBox="0 0 280.5 280.5" style="overflow:visible;enable-background:new 0 0 280.5 280.5;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0 {
-                            fill: #222;
-                            opacity: 0.1
-                        }
-
-                    </style>
-                    <defs>
-                    </defs>
-                    <rect x="4.2" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 157.3841 123.0695)" class="st0" width="25.9" height="34.3" />
-                    <rect x="250.3" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 403.5232 -123.0695)" class="st0" width="25.9" height="34.3" />
-                    <rect x="127.3" y="246.1" class="st0" width="25.9" height="34.3" />
-                    <rect x="127.3" y="0" class="st0" width="25.9" height="34.3" />
-                    <rect x="40.2" y="210.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 176.2731 28.9394)" class="st0" width="25.9" height="34.3" />
-                    <rect x="214.3" y="36" transform="matrix(0.7071 0.7071 -0.7071 0.7071 104.1806 -145.1071)" class="st0" width="25.9" height="34.3" />
-                    <rect x="214.3" y="210.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -94.1301 227.25)" class="st0" width="25.9" height="34.3" />
-                    <rect x="40.2" y="36" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -22.0376 53.2035)" class="st0" width="25.9" height="34.3" />
-                    <rect x="80.4" y="236.9" transform="matrix(0.9246 0.381 -0.381 0.9246 103.8178 -16.4028)" class="st0" width="25.9" height="34.3" />
-                    <rect x="174.1" y="9.3" transform="matrix(0.9246 0.381 -0.381 0.9246 24.1861 -69.2959)" class="st0" width="25.9" height="34.3" />
-                    <rect x="241" y="170" transform="matrix(0.381 -0.9246 0.9246 0.381 -15.7669 350.6812)" class="st0" width="25.9" height="34.3" />
-                    <rect x="13.5" y="76.2" transform="matrix(0.381 -0.9246 0.9246 0.381 -69.9319 82.2221)" class="st0" width="25.9" height="34.3" />
-                    <rect x="174.6" y="236.7" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -83.1631 91.582)" class="st0" width="25.9" height="34.3" />
-                    <rect x="80" y="9.5" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -3.0903 37.761)" class="st0" width="25.9" height="34.3" />
-                    <rect x="240.9" y="75.8" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 265.6273 362.9808)" class="st0" width="25.9" height="34.3" />
-                    <rect x="13.6" y="170.4" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 -136.2844 284.1799)" class="st0" width="25.9" height="34.3" />
-                </svg>
-
-
-            </div>
-
-            <div class="temp__value">
-                <span class="temp__digit"></span><span class="temp__digit"></span>°
-            </div>
-
-
-        </div>
-
-
-
-        <div class="box">
-            <div class="temp__outdoors-col">
-                <small class="temp__heading">Current</small>
-                <br>
-                <span class="temp__c-value">0°</span>
-            </div>
-            <div class="temp__outdoors-col">
-                <small class="temp__heading">Outside</small>
-                <br>
-                <span class="temp__o-value">0°</span>
-            </div>
-            <div class="temp__outdoors-col">
-                <small class="temp__heading">Humidity</small>
-                <br>
-                <span class="temp__h-value">0%%</span>
-            </div>
-        </div>
-
-        <div class="input_button">
-            <div class="on-off-toggle">
-
-                <input class="on-off-toggle__input" checked type="checkbox" id="bopis" />
-                <label for="bopis" class="on-off-toggle__slider"></label>
-            </div>
-            <p class="labell">wiatrak</p>
-
-
-        </div>
-        <div class="box">
-
-          
-          <button class="button button-icon button-clear md-settings">Ustawienia</button>
-
-          
-          <ion-icon name="md-settings"  class="settings" ios="ios-settings" md="md-settings"></ion-icon>
-
-
-          <script type="javascript">
-          
-          
-          </script>
-
-        
-        </div>
-
-    </div>
-
-
-    <style>
+<style>
         * {
             border: 0;
             box-sizing: border-box;
@@ -522,6 +417,117 @@ const char webpage[] PROGMEM = R"rawliteral(
         }
 
     </style>
+
+
+
+</head>
+
+<body class="">
+    <div id="stop" class=" bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700">Stop</div>
+    <div id="start" class="  bg-purple-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-purple-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2">Start</div>
+    <div class="temp">
+
+
+        <div class="temp__dial">
+
+            <div class="temp__drag"></div>
+            <div class="temp__dial-shades">
+                <div class="temp__shade-cold"></div>
+                <div class="temp__shade-hot"></div>
+            </div>
+            <div class="temp__dial-core">
+            </div>
+            <div class="ring">
+
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="280.5px" height="280.5px" viewBox="0 0 280.5 280.5" style="overflow:visible;enable-background:new 0 0 280.5 280.5;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0 {
+                            fill: #222;
+                            opacity: 0.1
+                        }
+
+                    </style>
+                    <defs>
+                    </defs>
+                    <rect x="4.2" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 157.3841 123.0695)" class="st0" width="25.9" height="34.3" />
+                    <rect x="250.3" y="123.1" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 403.5232 -123.0695)" class="st0" width="25.9" height="34.3" />
+                    <rect x="127.3" y="246.1" class="st0" width="25.9" height="34.3" />
+                    <rect x="127.3" y="0" class="st0" width="25.9" height="34.3" />
+                    <rect x="40.2" y="210.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 176.2731 28.9394)" class="st0" width="25.9" height="34.3" />
+                    <rect x="214.3" y="36" transform="matrix(0.7071 0.7071 -0.7071 0.7071 104.1806 -145.1071)" class="st0" width="25.9" height="34.3" />
+                    <rect x="214.3" y="210.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -94.1301 227.25)" class="st0" width="25.9" height="34.3" />
+                    <rect x="40.2" y="36" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -22.0376 53.2035)" class="st0" width="25.9" height="34.3" />
+                    <rect x="80.4" y="236.9" transform="matrix(0.9246 0.381 -0.381 0.9246 103.8178 -16.4028)" class="st0" width="25.9" height="34.3" />
+                    <rect x="174.1" y="9.3" transform="matrix(0.9246 0.381 -0.381 0.9246 24.1861 -69.2959)" class="st0" width="25.9" height="34.3" />
+                    <rect x="241" y="170" transform="matrix(0.381 -0.9246 0.9246 0.381 -15.7669 350.6812)" class="st0" width="25.9" height="34.3" />
+                    <rect x="13.5" y="76.2" transform="matrix(0.381 -0.9246 0.9246 0.381 -69.9319 82.2221)" class="st0" width="25.9" height="34.3" />
+                    <rect x="174.6" y="236.7" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -83.1631 91.582)" class="st0" width="25.9" height="34.3" />
+                    <rect x="80" y="9.5" transform="matrix(0.9232 -0.3844 0.3844 0.9232 -3.0903 37.761)" class="st0" width="25.9" height="34.3" />
+                    <rect x="240.9" y="75.8" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 265.6273 362.9808)" class="st0" width="25.9" height="34.3" />
+                    <rect x="13.6" y="170.4" transform="matrix(-0.3844 -0.9232 0.9232 -0.3844 -136.2844 284.1799)" class="st0" width="25.9" height="34.3" />
+                </svg>
+
+
+            </div>
+
+            <div class="temp__value">
+                <span class="temp__digit"></span><span class="temp__digit"></span>°
+            </div>
+
+
+        </div>
+
+
+
+        <div class="box">
+            <div class="temp__outdoors-col">
+                <small class="temp__heading">Current</small>
+                <br>
+                <span class="temp__c-value">0°</span>
+            </div>
+            <div class="temp__outdoors-col">
+                <small class="temp__heading">Outside</small>
+                <br>
+                <span class="temp__o-value">0°</span>
+            </div>
+            <div class="temp__outdoors-col">
+                <small class="temp__heading">Humidity</small>
+                <br>
+                <span class="temp__h-value">0%%</span>
+            </div>
+        </div>
+
+        <div class="input_button">
+            <div class="on-off-toggle">
+
+                <input class="on-off-toggle__input" checked type="checkbox" id="bopis" />
+                <label for="bopis" class="on-off-toggle__slider"></label>
+            </div>
+            <p class="labell">wiatrak</p>
+
+
+        </div>
+        <div class="box">
+
+          
+          <button class="button button-icon button-clear md-settings">Ustawienia</button>
+
+          
+          <ion-icon name="md-settings"  class="settings" ios="ios-settings" md="md-settings"></ion-icon>
+
+
+          <script type="javascript">
+          
+          
+          </script>
+
+        
+        </div>
+
+    </div>
+
+
+    
     <script type="text/javascript">
         var startAnim = gsap.to(".ring", {
             rotation: "+=360",
