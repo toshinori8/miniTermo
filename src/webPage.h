@@ -647,12 +647,12 @@ const char webpage[] PROGMEM = R"rawliteral(
             constructor(el) {
                 
                 this.el = document.querySelector(el);
-                this.temp = %_setTemp_%;
-                this.tempMin = %_tempMin_%;
-                this.tempMax = %_tempMax_%;
+                this.temp     = 0;
+                this.tempMin  = 10;
+                this.tempMax  = 50;
                 this.angleMin = 15;
                 this.angleMax = 345;
-                this.outside = 0;
+                this.outside  = 0;
                 this.humidity = 0;
 
                 this.init();

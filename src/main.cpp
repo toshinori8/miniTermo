@@ -1,31 +1,32 @@
-#include <Arduino.h>
-#include <DHT.h>
-#include <DHT_U.h>
-#include <Timers.h>   
 
-#include <EEPROM.h>
-#include <ESP8266WiFi.h>
-#include <ESPAsyncWebServer.h>
-#define TEMPLATE_PLACEHOLDER '^'
-#include <ESP8266mDNS.h>
-#include <ESPAsyncTCP.h>
-#include <WiFiUdp.h>
-#include <ArduinoOTA.h>
-#include <espnow.h>
+#include  <Arduino.h>
+#include  <DHT.h>
+#include  <DHT_U.h>
+#include  <Timers.h>   
+#include  <WiFiUdp.h>
+#include  <ArduinoOTA.h>
+#include  <espnow.h>
+#include  <ESP8266mDNS.h>
+#include  <ESPAsyncTCP.h>
+#include  <EEPROM.h>
+#include  <ESP8266WiFi.h>
+#include  <ESPAsyncWebServer.h>
 
-#include "main.h"
-#include "functions.h"
-#include "esp_now.h"
+
+
+#include  "main.h"
+#include  "functions.h"
+#include  "esp_now.h"
+
+
 int setTemp=1;
 
-
-  class fan {
-    
-    int delay = 2000;
-    int state = LOW;
-    long duration;
-    unsigned long millisMarker;
-  };
+  // class fan {
+  //   int delay = 2000;
+  //   int state = LOW;
+  //   long duration;
+  //   unsigned long millisMarker;
+  // };
 
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -45,10 +46,6 @@ Timers <4> timer;
 //Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-
-
-
-
 int temp, humi;
 String fan = "checked";
 String fanControll;
@@ -60,10 +57,6 @@ void readDHT();
 
 AsyncWebServer server(80);
 
-
-
-
-
 const char* ssid = "oooooio";
 const char* password = "pmgana921";
 
@@ -74,30 +67,21 @@ int tempMin = 10;
 int tempMax = 50;
 
 
-
-
 #include "webPage.h"
 String processor(const String& var)
 {
-  if (var == "_setTemp_")
+  if (var == "setTemp")
     return String(setTemp);
 
-  if (var == "_tempMin_")
+  if (var == "tempMin")
     return String(tempMin);
 
-  if (var == "_tempMax_")
+  if (var == "tempMax")
     return String(tempMax);
-
-
-
 
 return String();
 
 };
-
-
-
-
 
 
 void notFound(AsyncWebServerRequest *request) {
@@ -105,7 +89,6 @@ void notFound(AsyncWebServerRequest *request) {
 }
 
 void setup(void) {
-
 
 //********** CHANGE PIN FUNCTION  TO GPIO **********
 //GPIO 1 (TX) swap the pin to a GPIO.
@@ -152,8 +135,6 @@ void setup(void) {
   Serial.begin(115200);
   EEPROM.begin(512);
   setTemp = EEPROM.read(0);
-
-
 
   WiFi.begin(ssid, password);
 
@@ -206,7 +187,6 @@ void setup(void) {
     request->send_P(200, "text/html", "fanControllOK");
   });
 
-
   server.on("/params", HTTP_GET, [](AsyncWebServerRequest * request) {
     String json = "";
     json += "{";
@@ -231,7 +211,6 @@ void setup(void) {
   server.onNotFound(notFound);
   Serial.println("HTTP Server Started");
 }
-
 
 void loop(void) {
   timer.process();
