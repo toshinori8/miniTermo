@@ -46,6 +46,8 @@ Timers <4> timer;
 //Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
+// gateway MAC MAC: dc:4f:22:58:68:bc
+
 int temp, humi;
 String fan = "checked";
 String fanControll;
@@ -133,12 +135,17 @@ void setup(void) {
   WiFi.disconnect();
   delay(100);
   Serial.begin(115200);
-  EEPROM.begin(512);
+  EEPROM.begin(128);
   setTemp = EEPROM.read(0);
 
   WiFi.begin(ssid, password);
 
-  // Wait for connection
+  Serial.println(F("Flash Size"));
+  Serial.println(ESP.getFlashChipSize());
+  Serial.printf("---------------------------");
+
+  
+    // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(200);
     Serial.print(".");

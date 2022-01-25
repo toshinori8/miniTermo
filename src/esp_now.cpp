@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include "esp_now.h"
-
+// dc:4f:22:58:68:bc
 uint8_t remoteMac[] = {0xDC, 0x4F, 0x22, 0x58, 0x68, 0xBC};
-
+#define WIFI_CHANNEL 3
 struct __attribute__((packed)) dataStruct
 {
 
