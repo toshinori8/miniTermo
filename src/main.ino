@@ -90,21 +90,9 @@ return String();
 
 
 
-int fanDelayI=0;
-
-void setDelay(){
-  timer.updateInterval(3,45000);// 0,75 minute
-};
-
-
-void fanDelay(){
-
-
-fanDelayI=1;
 
 
 
-};
 
 void notFound(AsyncWebServerRequest *request) {
   request->send(404, "text/plain", "Not found");
@@ -134,7 +122,7 @@ void setup(void) {
 
   timer.attach(0, 3000, termostatRules);
   timer.attach(2, 4332, readDHT); 
-  timer.attach(3, 0, fanDelay); // function to avoid bouncing of termostat 
+  //timer.attach(3, 0, fanDelay); // function to avoid bouncing of termostat 
 
   /////////////////////////////////////     OLED DISOPLAY
 

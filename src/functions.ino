@@ -8,18 +8,21 @@
 void termostatRules() {
 
 
-  if (setTemp <= temp) {
+  if (setTemp <= temp ) {
 
     Serial.println("termostatRules FAN ON");
       
-    setDelay();
+  
+
     digitalWrite(FANPIN, LOW);
     fan = "checked";
+    delay(30000);
+    
 
+  } else  {
 
-  } else if(fanDelayI==0) {
-
-
+    
+   
     Serial.println("termostatRules FAN OFF");
     digitalWrite(FANPIN, HIGH);
     fan = "unchecked";
