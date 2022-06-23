@@ -17,4 +17,3 @@ extern int tempMin;
 extern int tempMax;
 
 
-

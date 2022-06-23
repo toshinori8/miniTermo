@@ -9,6 +9,7 @@ void termostatRules();
 
 void readDHT();
 
+void updateESP();
 
 
 #endif 
