@@ -12,6 +12,8 @@ void termostatRules() {
     Serial.println("termostatRules FAN ON");
     digitalWrite(FANPIN, LOW);
     fan = "checked";
+    delay(30000);
+    
 
   } else {
     Serial.println("termostatRules FAN OFF");
